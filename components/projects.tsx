@@ -6,9 +6,26 @@ import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "@/lib/translations";
 
 // Project data
 const projects = [
+  {
+    title: "ChainChat - Blockchain Explorer",
+    description:
+      "Uma plataforma para explorar a blockchain Stellar.",
+    image: "/chainchat.png",
+    technologies: [
+      "Next.js",
+      "Stellar SDK",
+      "Shadcn UI",
+      "Tailwind CSS",
+      "TypeScript",
+    ],
+    liveUrl: "https://chain-chat.live/",
+    githubUrl: "https://github.com/Maycon-Rodrigues/chainchat",
+    featured: true,
+  },
   {
     title: "SCI - Stellar Contract Invoker",
     description:
@@ -26,12 +43,22 @@ const projects = [
     featured: true,
   },
   {
-    title: "Stephany Araujo - Site Pessoal",
+    title: "Stephany Araujo - Website",
     description:
       "Site pessoal para a advogada Stephany Araujo, com informações sobre sua carreira, contato e redes sociais.",
     image: "/adv.png",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Resend"],
     liveUrl: "https://stephanyaraujo.adv.br/",
+    featured: true,
+  },
+  {
+    title: "Buy me a coffee",
+    description:
+      "Site para gerenciamento de doações usando blockchain stellar.",
+    image: "/bmac.png",
+    technologies: ["Astro.js", "Tailwind CSS", "TypeScript", "Stellar SDK", "Stellar Wallet Kit"],
+    liveUrl: "https://stellar-buy-me-a-coffee.netlify.app/",
+    githubUrl: "https://github.com/Maycon-Rodrigues/stellar-buy-me-a-coffee-dapp",
     featured: true,
   },
   {
@@ -76,6 +103,7 @@ function ProjectCard({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [isHovered, setIsHovered] = useState(false);
+  const t = useTranslations('projects');
 
   return (
     <motion.div
@@ -109,7 +137,7 @@ function ProjectCard({
         <h3 className="text-xl font-semibold text-white mb-2">
           {project.title}
         </h3>
-        <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+        {/* <p className="text-gray-300 text-sm mb-4">{project.description}</p> */}
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (
@@ -126,7 +154,7 @@ function ProjectCard({
           <Button size="sm" className="bg-cyan-500 hover:bg-cyan-600" asChild>
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink size={14} className="mr-1" />
-              Demo
+              {t('viewProject')}
             </a>
           </Button>
           {project.githubUrl && (
@@ -142,7 +170,7 @@ function ProjectCard({
                 rel="noopener noreferrer"
               >
                 <Github size={14} className="mr-1" />
-                Código
+                {t('viewCode')}
               </a>
             </Button>
           )}
@@ -155,6 +183,7 @@ function ProjectCard({
 export function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const t = useTranslations('projects');
 
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
@@ -180,7 +209,7 @@ export function Projects() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             <span className="bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
-              Projetos
+              {t('title')}
             </span>
           </h2>
 

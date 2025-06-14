@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "skills": "Habilidades", 
+    "projects": "Projetos",
+    "contact": "Contato",
+    "hireMe": "Contrate-me"
+  },
+  "hero": {
+    "greeting": "Olá, eu sou",
+    "name": "Maycon Rodrigues",
+    "role": "Desenvolvedor Full-Stack",
+    "description": "Transformando ideias em código com paixão pela inovação e excelência técnica. Especializado em tecnologias modernas para criar soluções digitais impactantes.",
+    "cta": "Ver Projetos",
+    "downloadCV": "Download CV"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "subtitle": "Conheça minha jornada",
+    "description": "Sou um desenvolvedor full-stack apaixonado por criar soluções digitais inovadoras. Com experiência em tecnologias modernas, transformo ideias complexas em aplicações funcionais e elegantes.",
+    "highlights": {
+      "experience": "Anos de Experiência",
+      "projects": "Projetos Concluídos",
+      "technologies": "Tecnologias Dominadas",
+      "clients": "Clientes Satisfeitos"
+    }
+  },
+  "skills": {
+    "title": "Minhas Habilidades",
+    "subtitle": "Tecnologias que domino",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Banco de Dados",
+      "devops": "DevOps",
+      "mobile": "Mobile",
+      "other": "Outras",
+      "tools": "Ferramentas"
+    }
+  },
+  "projects": {
+    "title": "Meus Projetos",
+    "subtitle": "Trabalhos recentes",
+    "viewProject": "Ir para o site",
+    "viewCode": "Ver Código",
+    "technologies": "Tecnologias utilizadas"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Vamos trabalhar juntos",
+    "description": "Está interessado em trabalhar comigo? Entre em contato e vamos discutir como posso ajudar com seu próximo projeto.",
+    "form": {
+      "name": "Nome",
+      "email": "E-mail",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "send": "Enviar Mensagem",
+      "sending": "Enviando...",
+      "success": "Mensagem enviada com sucesso!",
+      "error": "Erro ao enviar mensagem. Tente novamente."
+    },
+    "info": {
+      "email": "E-mail",
+      "phone": "Telefone",
+      "location": "Localização"
+    }
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "social": "Redes Sociais"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "close": "Fechar",
+    "save": "Salvar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior"
+  },
+  "meta": {
+    "title": "Maycon Rodrigues - Desenvolvedor Full-Stack",
+    "description": "Desenvolvedor Full-Stack | Transformando Ideias em Código"
+  }
+} 

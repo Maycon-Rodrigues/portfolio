@@ -1,3 +1,5 @@
+// Removendo next-intl plugin para configuração manual
+
 let userConfig = undefined
 try {
   // try to import ESM first

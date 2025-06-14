@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useTranslations } from "@/lib/translations";
 
 // Skill data structure
 interface Skill {
@@ -12,7 +13,7 @@ interface Skill {
 // Skill categories
 const skillCategories = [
   {
-    title: "Front-End",
+    title: "frontend",
     skills: [
       { name: "HTML5", icon: "html5" },
       { name: "CSS3", icon: "css3" },
@@ -25,7 +26,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "Back-End",
+    title: "backend",
     skills: [
       { name: "Node.js", icon: "nodejs" },
       { name: "Python", icon: "python" },
@@ -38,7 +39,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "Ferramentas & Outros",
+    title: "tools",
     skills: [
       { name: "Git", icon: "git" },
       { name: "Docker", icon: "docker" },
@@ -82,6 +83,7 @@ function SkillCategory({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const t = useTranslations('skills');
 
   return (
     <motion.div
@@ -92,7 +94,7 @@ function SkillCategory({
       className="mb-12"
     >
       <h3 className="text-xl font-semibold mb-6 text-cyan-400">
-        {category.title}
+        {t(`categories.${category.title}`) || t('categories.other')}
       </h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {category.skills.map((skill, idx) => (
@@ -106,7 +108,8 @@ function SkillCategory({
 export function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-
+  const t = useTranslations('skills');
+  
   return (
     <section
       id="skills"
@@ -129,7 +132,7 @@ export function Skills() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             <span className="bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
-              Minhas Stacks
+              {t('title')}
             </span>
           </h2>
 

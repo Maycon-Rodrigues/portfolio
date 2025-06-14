@@ -6,10 +6,12 @@ import Image from "next/image";
 import { Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useTranslations } from '@/lib/translations';
 
 export function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const t = useTranslations('about');
 
   return (
     <section
@@ -29,7 +31,7 @@ export function About() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             <span className="bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
-              Sobre Mim
+              {t('title')}
             </span>
           </h2>
 
@@ -46,18 +48,8 @@ export function About() {
             </div>
 
             <div className="w-full md:w-2/3">
-              <p className="text-lg text-gray-300 mb-6">
-                Sou um desenvolvedor full-stack apaixonado por criar aplicações
-                escaláveis e interfaces intuitivas. Com mais de 5 anos de
-                experiência no desenvolvimento web, tenho trabalhado com
-                diversas tecnologias e frameworks modernos, incluindo
-                tecnologias blockchain (WEB3).
-              </p>
               <p className="text-lg text-gray-300 mb-8">
-                Minha abordagem combina criatividade com soluções técnicas
-                robustas, sempre buscando a melhor experiência para o usuário
-                final. Acredito que o código limpo e bem estruturado é tão
-                importante quanto a funcionalidade que ele proporciona.
+                {t('description')}
               </p>
 
               <div className="flex flex-wrap gap-4">

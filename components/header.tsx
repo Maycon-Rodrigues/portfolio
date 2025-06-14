@@ -5,18 +5,21 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-
-const navItems = [
-  { name: "Início", href: "#hero" },
-  { name: "Sobre", href: "#about" },
-  { name: "Stacks", href: "#skills" },
-  { name: "Projetos", href: "#projects" },
-  { name: "Contato", href: "#contact" },
-];
+import { useTranslations } from '@/lib/translations';
+import { LanguageSwitcher } from './language-switcher';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const t = useTranslations('nav');
+
+  const navItems = [
+    { name: t('home'), href: "#hero" },
+    { name: t('about'), href: "#about" },
+    { name: t('skills'), href: "#skills" },
+    { name: t('projects'), href: "#projects" },
+    { name: t('contact'), href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,8 +74,9 @@ export function Header() {
                 });
               }}
             >
-              Contrate-me
+              {t('hireMe')}
             </Button>
+            <LanguageSwitcher />
           </nav>
 
           {/* Mobile Navigation Toggle */}
@@ -115,8 +119,11 @@ export function Header() {
                   setIsOpen(false);
                 }}
               >
-                Contrate-me
+                {t('hireMe')}
               </Button>
+              <div className="flex justify-center mt-4">
+                <LanguageSwitcher />
+              </div>
             </nav>
           </div>
         </div>

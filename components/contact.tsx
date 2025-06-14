@@ -5,10 +5,12 @@ import type React from "react";
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useTranslations } from "@/lib/translations";
 
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const t = useTranslations('contact');
 
   return (
     <section
@@ -31,7 +33,7 @@ export function Contact() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             <span className="bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
-              Entre em Contato
+              {t('title')}
             </span>
           </h2>
 
@@ -39,12 +41,10 @@ export function Contact() {
             {/* Contact Info */}
             <div>
               <h3 className="text-xl font-semibold mb-6 text-white">
-                Vamos conversar sobre seu projeto
+                {t('subtitle')}
               </h3>
               <p className="text-gray-300 mb-8">
-                Estou disponível para freelance, projetos de longo prazo ou
-                oportunidades de emprego. Preencha o formulário ou entre em
-                contato através dos canais abaixo.
+                {t('description')}
               </p>
             </div>
 
@@ -56,7 +56,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-400 mb-1">
-                      Email
+                      {t('email')}
                     </h4>
                     <p className="text-white">maycon.zng@gmail.com</p>
                   </div>
@@ -68,7 +68,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-400 mb-1">
-                      Telefone
+                      {t('phone')}
                     </h4>
                     <p className="text-white">(21) 98398-3056</p>
                   </div>
@@ -80,9 +80,9 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-400 mb-1">
-                      Localização
+                      {t('location')}
                     </h4>
-                    <p className="text-white">Rio de Janeiro, Brasil</p>
+                    <p className="text-white">{t('locationValue')}</p>
                   </div>
                 </div>
               </div>

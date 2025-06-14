@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "hireMe": "Hire Me"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Maycon Rodrigues",
+    "role": "Full-Stack Developer",
+    "description": "Transforming ideas into code with passion for innovation and technical excellence. Specialized in modern technologies to create impactful digital solutions.",
+    "cta": "View Projects",
+    "downloadCV": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Get to know my journey",
+    "description": "I'm a full-stack developer passionate about creating innovative digital solutions. With experience in modern technologies, I transform complex ideas into functional and elegant applications.",
+    "highlights": {
+      "experience": "Years of Experience",
+      "projects": "Completed Projects",
+      "technologies": "Mastered Technologies",
+      "clients": "Satisfied Clients"
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "subtitle": "Technologies I master",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps",
+      "mobile": "Mobile",
+      "other": "Others",
+      "tools": "Tools"
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Recent work",
+    "viewProject": "Go to website",
+    "viewCode": "View Code",
+    "technologies": "Technologies used"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's work together",
+    "description": "Interested in working with me? Get in touch and let's discuss how I can help with your next project.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "social": "Social Media"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "meta": {
+    "title": "Maycon Rodrigues - Full-Stack Developer",
+    "description": "Full-Stack Developer | Transforming Ideas into Code"
+  }
+} 
