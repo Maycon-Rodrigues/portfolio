@@ -5,75 +5,10 @@ import type React from "react";
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "@/components/ui/use-toast";
-import { useForm } from "react-hook-form";
-import { formSchema } from "@/lib/schema/formSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  FormField,
-  Form,
-  FormLabel,
-  FormControl,
-  FormItem,
-  FormMessage,
-} from "./ui/form";
 
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const form = useForm<formSchema>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    },
-  });
-
-  async function onSubmit(values: formSchema) {
-    try {
-      setIsSubmitting(true);
-
-      const response = await fetch("/api/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-
-      if (!response.ok) {
-        throw new Error("Falha ao enviar mensagem");
-      }
-
-      toast({
-        title: "Sucesso!",
-        description: "Recebemos sua mensagem e entraremos em contato em breve.",
-      });
-
-      form.reset();
-    } catch (error) {
-      console.error("Erro ao enviar email:", error);
-      toast({
-        title: "Erro",
-        description:
-          error instanceof Error
-            ? error.message
-            : "Algo deu errado. Por favor, tente novamente.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
 
   return (
     <section
@@ -111,7 +46,9 @@ export function Contact() {
                 oportunidades de emprego. Preencha o formulário ou entre em
                 contato através dos canais abaixo.
               </p>
+            </div>
 
+            <div>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="bg-slate-800 p-3 rounded-lg mr-4">
@@ -149,107 +86,6 @@ export function Contact() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 shadow-lg">
-              <Form {...form}>
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="space-y-6"
-                >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Nome Completo</FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Seu nome"
-                                {...field}
-                                className="bg-slate-700/50 border-slate-600 focus:border-cyan-500"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>E-mail</FormLabel>
-                            <FormControl>
-                              <Input
-                                type="email"
-                                placeholder="seu@email.com"
-                                {...field}
-                                className="bg-slate-700/50 border-slate-600 focus:border-cyan-500"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <FormField
-                      control={form.control}
-                      name="subject"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Assunto</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Como posso ajudar?"
-                              {...field}
-                              className="bg-slate-700/50 border-slate-600 focus:border-cyan-500"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Sua Mensagem</FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Descreva seu projeto ou dúvida..."
-                              {...field}
-                              className="h-32 bg-slate-700/50 border-slate-600 focus:border-cyan-500"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-cyan-500 hover:bg-cyan-600 text-white"
-                    disabled={isSubmitting}
-                  >
-                    <Send className="mr-2 h-4 w-4" />
-                    {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
-                  </Button>
-                </form>
-              </Form>
             </div>
           </div>
         </motion.div>
