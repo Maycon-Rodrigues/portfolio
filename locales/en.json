@@ -63,7 +63,8 @@
     "info": {
       "email": "Email",
       "phone": "Phone",
-      "location": "Location"
+      "location": "Location",
+      "locationValue": "Rio de Janeiro, Brazil"
     }
   },
   "footer": {

@@ -82,7 +82,7 @@ export function Contact() {
                     <h4 className="text-sm font-medium text-gray-400 mb-1">
                       {t('location')}
                     </h4>
-                    <p className="text-white">{t('locationValue')}</p>
+                    <p className="text-white">{t('info.locationValue')}</p>
                   </div>
                 </div>
               </div>
