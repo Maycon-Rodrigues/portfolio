@@ -23,7 +23,6 @@ const projects = [
       "TypeScript",
     ],
     liveUrl: "https://chain-chat.live/",
-    githubUrl: "https://github.com/Maycon-Rodrigues/chainchat",
     featured: true,
   },
   {
@@ -62,32 +61,20 @@ const projects = [
     featured: true,
   },
   {
-    title: "DApp - Decentralized Application",
+    title: "Simple Bank API",
     description:
-      "DApp para gerenciamento de cursos com recursos de compra e venda de cursos.",
-    image: "/daap.png",
-    technologies: ["Next.js", "Solidity", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://web3-course-dapp.vercel.app/",
-    githubUrl: "https://github.com/Maycon-Rodrigues/web3-course-dapp",
-    featured: true,
+      "Sistema de pagamento bancário simples, com funcionalidades de transferência, saque e depósito.",
+    image: "/simple-pay.png",
+    technologies: ["Nest.js", "Swagger", "Docker", "Docker Compose", "PostgreSQL"],
+    githubUrl: "https://github.com/Maycon-Rodrigues/simple-bank-api",
   },
   {
-    title: "Fitness Tracker",
+    title: "Scientive DAO",
     description:
-      "Aplicativo para acompanhamento de atividades físicas, nutrição e progresso pessoal.",
-    image: "/placeholder.svg?height=600&width=800",
-    technologies: ["React Native", "GraphQL", "Node.js", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Blog Platform",
-    description:
-      "Plataforma de blog com editor rich text, categorias, tags e sistema de comentários.",
-    image: "/placeholder.svg?height=600&width=800",
-    technologies: ["Laravel", "MySQL", "Alpine.js", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
+      "Plataforma de DAO para a Scientive, com funcionalidades de criação de propostas, votação e gestão de recursos.",
+    image: "/sol.png",
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Solidity", "Foundry", "Zk Verify", "Rust"],
+    githubUrl: "https://github.com/scientiveDAO",
   },
 ];
 
@@ -151,12 +138,12 @@ function ProjectCard({
         </div>
 
         <div className="flex gap-3">
-          <Button size="sm" className="bg-cyan-500 hover:bg-cyan-600" asChild>
+          {project.liveUrl && <Button size="sm" className="bg-cyan-500 hover:bg-cyan-600" asChild>
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink size={14} className="mr-1" />
               {t('viewProject')}
             </a>
-          </Button>
+          </Button>}
           {project.githubUrl && (
             <Button
               size="sm"
