@@ -86,7 +86,7 @@ export function Hero() {
               className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/10"
               onClick={() => {
                 // Simulando download do CV
-                window.open('/cv_maycon_rodrigues.pdf', '_blank');
+                window.open('/cv_maycon_en.pdf', '_blank');
               }}
             >
               {t('downloadCV')}
