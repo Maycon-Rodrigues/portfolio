@@ -39,6 +39,19 @@ const skillCategories = [
     ],
   },
   {
+    title: "aiEngineering",
+    skills: [
+      { name: "Agno", icon: "agno" },
+      { name: "LangChain", icon: "langchain" },
+      { name: "OpenAI", icon: "openai" },
+      { name: "Gemini", icon: "gemini" },
+      { name: "Streamlit", icon: "streamlit" },
+      { name: "Vector DBs", icon: "vectordb" },
+      { name: "RAG", icon: "rag" },
+      { name: "Agent Frameworks", icon: "agents" },
+    ],
+  },
+  {
     title: "blockchain",
     skills: [
       { name: "Solidity", icon: "solidity" },

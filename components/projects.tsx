@@ -11,6 +11,38 @@ import { useTranslations } from "@/lib/translations";
 // Project data
 const projects = [
   {
+    title: "Stellar Blockchain Assistent",
+    description:
+      "Um agente de IA para interagir com a Stellar Blockchain", 
+    image: "/stellarAI.png",
+    technologies: [
+      "Python",
+      "Streamlit",
+      "Agno",
+      "Sqlite",
+      "llm",
+      "OpenAi",
+      "Gemini",
+    ],
+    liveUrl: "https://stellar-assistant.streamlit.app/",
+    githubUrl: "https://github.com/Maycon-Rodrigues/stellar-blockchain-assistant",
+    featured: true,
+  },
+  {
+    title: "DevOps AI Agent",
+    description:
+      "Um agente de IA para automatizar tarefas de DevOps.", 
+    image: "/devops.png",
+    technologies: [
+      "Python",
+      "Agno",
+      "Sqlite",
+      "llm",
+    ],
+    githubUrl: "https://github.com/Maycon-Rodrigues/DevOps-Agent",
+    featured: true,
+  },
+  {
     title: "ChainChat - Blockchain Explorer",
     description:
       "Uma plataforma para explorar a blockchain Stellar.",
@@ -58,7 +90,6 @@ const projects = [
     technologies: ["Astro.js", "Tailwind CSS", "TypeScript", "Stellar SDK", "Stellar Wallet Kit"],
     liveUrl: "https://stellar-buy-me-a-coffee.netlify.app/",
     githubUrl: "https://github.com/Maycon-Rodrigues/stellar-buy-me-a-coffee-dapp",
-    featured: true,
   },
   {
     title: "Simple Bank API",
@@ -189,7 +220,7 @@ export function Projects() {
       <div className="absolute bottom-40 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -224,7 +255,7 @@ export function Projects() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
