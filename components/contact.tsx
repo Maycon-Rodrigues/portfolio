@@ -10,7 +10,7 @@ import { useTranslations } from "@/lib/translations";
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const t = useTranslations('contact');
+  const t = useTranslations("contact");
 
   return (
     <section
@@ -33,7 +33,7 @@ export function Contact() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             <span className="bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
-              {t('title')}
+              {t("title")}
             </span>
           </h2>
 
@@ -41,11 +41,9 @@ export function Contact() {
             {/* Contact Info */}
             <div>
               <h3 className="text-xl font-semibold mb-6 text-white">
-                {t('subtitle')}
+                {t("subtitle")}
               </h3>
-              <p className="text-gray-300 mb-8">
-                {t('description')}
-              </p>
+              <p className="text-gray-300 mb-8">{t("description")}</p>
             </div>
 
             <div>
@@ -56,9 +54,9 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-400 mb-1">
-                      {t('email')}
+                      {t("email")}
                     </h4>
-                    <p className="text-white">maycon.zng@gmail.com</p>
+                    <p className="text-white">business@mayconrodrigues.com</p>
                   </div>
                 </div>
 
@@ -68,7 +66,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-400 mb-1">
-                      {t('phone')}
+                      {t("phone")}
                     </h4>
                     <p className="text-white">(21) 98398-3056</p>
                   </div>
@@ -80,9 +78,9 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-400 mb-1">
-                      {t('location')}
+                      {t("location")}
                     </h4>
-                    <p className="text-white">{t('info.locationValue')}</p>
+                    <p className="text-white">{t("info.locationValue")}</p>
                   </div>
                 </div>
               </div>
