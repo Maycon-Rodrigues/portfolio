@@ -9,14 +9,13 @@ import { Header } from "@/components/header";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 text-white">
+    <div className="min-h-screen bg-background text-white">
       <Header />
       <main>
         <Hero />
         <About />
         <Skills />
         <Projects />
-        {/* <Testimonials /> */}
         <Contact />
       </main>
       <Footer />

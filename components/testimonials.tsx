@@ -43,25 +43,28 @@ function TestimonialCard({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1 }}
-      className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 shadow-lg hover:shadow-cyan-500/10"
+      className="relative group p-px rounded-2xl overflow-hidden h-full"
     >
-      <Quote className="text-cyan-400 mb-4 h-8 w-8 opacity-50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-electric-blue-500/20 via-steel-800/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative bg-zinc-900/80 backdrop-blur-sm rounded-2xl p-8 border border-zinc-800 group-hover:border-electric-blue-500/30 transition-all duration-300 h-full flex flex-col shadow-lg">
+        <Quote className="text-electric-blue-500 mb-6 h-8 w-8 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
 
-      <p className="text-gray-300 mb-6 italic">{testimonial.text}</p>
+        <p className="text-zinc-300 mb-8 italic flex-grow leading-relaxed">"{testimonial.text}"</p>
 
-      <div className="flex items-center">
-        <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
-          <Image
-            src={testimonial.image || "/placeholder.svg"}
-            alt={testimonial.name}
-            width={100}
-            height={100}
-            className="object-cover"
-          />
-        </div>
-        <div>
-          <h4 className="font-medium text-white">{testimonial.name}</h4>
-          <p className="text-sm text-gray-400">{testimonial.position}</p>
+        <div className="flex items-center pt-4 border-t border-zinc-800 group-hover:border-zinc-700/50 transition-colors">
+          <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-zinc-700 group-hover:border-electric-blue-500/50 transition-colors">
+            <Image
+              src={testimonial.image || "/placeholder.svg"}
+              alt={testimonial.name}
+              width={100}
+              height={100}
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h4 className="font-bold text-white group-hover:text-electric-blue-300 transition-colors">{testimonial.name}</h4>
+            <p className="text-sm text-electric-blue-500/80 group-hover:text-electric-blue-400 transition-colors">{testimonial.position}</p>
+          </div>
         </div>
       </div>
     </motion.div>
@@ -73,18 +76,22 @@ export function Testimonials() {
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
-    <section id="testimonials" ref={ref} className="py-20 bg-slate-900/50 relative overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
+    <section id="testimonials" ref={ref} className="py-20 bg-background relative overflow-hidden">
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-electric-blue-500/50 to-transparent"></div>
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-electric-blue-500/50 to-transparent"></div>
 
-      <div className="container mx-auto px-4">
+      {/* Background elements */}
+      <div className="absolute top-40 left-10 w-64 h-64 bg-electric-blue-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-40 right-10 w-64 h-64 bg-steel-800/5 rounded-full blur-3xl"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            <span className="bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">Depoimentos</span>
+            <span className="bg-gradient-to-r from-white to-electric-blue-400 bg-clip-text text-transparent">Depoimentos</span>
           </h2>
 
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -1,105 +1,128 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { useTranslations } from '@/lib/translations';
+import { FloatingElements } from "@/components/ui/floating-elements";
+
+const heroFloatingShapes = [
+  { type: "ring" as const, size: 120, position: "top-20 right-[10%]", animation: "animate-float", delay: "0s" },
+  { type: "sphere" as const, size: 80, position: "bottom-32 left-[8%]", animation: "animate-float-reverse", delay: "1s" },
+  { type: "blob" as const, size: 160, position: "top-1/3 left-[5%]", animation: "animate-float-slow", delay: "2s" },
+  { type: "cross" as const, size: 50, position: "bottom-40 right-[15%]", animation: "animate-spin-slow" },
+  { type: "ring" as const, size: 60, position: "top-40 left-[25%]", animation: "animate-float-reverse", delay: "3s" },
+];
 
 export function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
-  const t = useTranslations('hero');
+  const t = useTranslations("hero")
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } },
+  }
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-16"
+      className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-background"
     >
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-slate-950 opacity-70"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10"></div>
-        <div className="absolute inset-0 bg-[url('/hero.jpg?height=1080&width=1920')] bg-cover bg-center opacity-20"></div>
+      {/* Giant outlined background text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <h2
+          className="text-[8rem] sm:text-[12rem] md:text-[16rem] lg:text-[20rem] font-black uppercase leading-none tracking-tighter whitespace-nowrap"
+          style={{
+            WebkitTextStroke: "1px rgba(59, 130, 246, 0.08)",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          DEVELOPER
+        </h2>
       </div>
 
-      <div className="container mx-auto px-4 z-10">
-        <div className="max-w-3xl mx-auto text-center">
+      {/* Subtle radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric-blue-500/5 rounded-full blur-[120px]" />
+
+      {/* Floating decorative elements */}
+      <FloatingElements shapes={heroFloatingShapes} />
+
+      <div className="container mx-auto px-4 z-10 relative">
+        <motion.div 
+          className="max-w-4xl mx-auto text-center"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-300 mb-2"
+            variants={item}
+            className="inline-block mb-4 px-3 py-1 rounded-full border border-electric-blue-500/30 bg-electric-blue-500/10 backdrop-blur-sm text-electric-blue-300 text-sm font-medium"
           >
             {t('greeting')}
           </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent"
+          
+          <motion.h1 
+            variants={item}
+            className="text-5xl md:text-7xl font-bold mb-6 tracking-tight"
           >
-            {t('name')}
+            <span className="bg-gradient-to-r from-electric-blue-400 via-steel-200 to-electric-blue-500 bg-clip-text text-transparent">
+              {t('role')}
+            </span>
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-2xl md:text-3xl font-semibold text-cyan-400 mb-6"
-          >
-            {t('role')}
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+          <motion.p 
+            variants={item}
+            className="text-xl md:text-2xl text-zinc-400 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
             {t('description')}
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+          
+          <motion.div 
+            variants={item}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button
               size="lg"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white"
+              className="group relative overflow-hidden bg-electric-blue-600 hover:bg-electric-blue-500 text-white rounded-full px-8 transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] active:scale-95 duration-300"
               onClick={() => {
-                document.querySelector("#projects")?.scrollIntoView({
-                  behavior: "smooth",
-                });
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              {t('cta')}
+              <span className="relative z-10 flex items-center">
+                {t('projects')}
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </span>
             </Button>
+            
             <Button
-              size="lg"
               variant="outline"
-              className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/10"
+              size="lg"
+              className="rounded-full px-8 border-zinc-700 bg-black/50 backdrop-blur-md text-white hover:bg-white hover:text-black transition-all hover:scale-105 active:scale-95 duration-300"
               onClick={() => {
-                // Simulando download do CV
-                window.open('/cv_maycon_en.pdf', '_blank');
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              {t('downloadCV')}
+              {t('contact')}
             </Button>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <Button
           variant="ghost"
           size="icon"
-          className="text-white hover:text-cyan-400 hover:bg-transparent"
+          className="text-zinc-500 hover:text-electric-blue-400 hover:bg-transparent transition-colors"
           onClick={() => {
             document.querySelector("#about")?.scrollIntoView({
               behavior: "smooth",
